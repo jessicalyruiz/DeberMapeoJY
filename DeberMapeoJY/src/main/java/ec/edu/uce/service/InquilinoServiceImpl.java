@@ -20,19 +20,19 @@ public class InquilinoServiceImpl implements IInquilinoService{
 	@Override
 	public Inquilino buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return inquilinoRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(Inquilino inquilino) {
 		// TODO Auto-generated method stub
-		
+		inquilinoRepo.update(inquilino);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		
+		inquilinoRepo.delete(id);
 	}
 
 }

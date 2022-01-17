@@ -66,15 +66,25 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
-		/*
+		
 		Animal animal=new Animal();
+		/*
 		animal.setId(1);
 		animal.setEspecie("perro");
 		animal.setNombre("Blaze");
 		animal.setEdad(4);
 		animal.setCuidados("darle amor sin medida" );
 		animalService.insertar(animal);
-		*/
+		animal.setId(2);
+		animal.setEspecie("perro");
+		animal.setNombre("Tommy");
+		animal.setEdad(2);
+		animal.setCuidados("jugar con el" );
+		animalService.insertar(animal);*/
+		//animalService.actualizar(animal);
+		//animalService.eliminar(3);
+		
+		
 		/*
 		Cliente cliente= new Cliente();
 		cliente.setApellido("yanez");
@@ -83,7 +93,10 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 		cliente.setEmail("jlyanez@uce.edu.ec");
 		cliente.setId(230011);
 		clienteService.insertar(cliente);
+		
 		*/
+		//clienteService.actualizar(cliente);
+		//clienteService.eliminar(2);
 		
 		/*
 		Empleado empleado=new Empleado();
@@ -94,6 +107,8 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 		empleado.setFechaInicio( LocalDate.of(2014, Month.JANUARY, 1));
 		empleadoService.insertar(empleado);
 		System.out.println(empleado.getFechaInicio());*/
+		//empleadoService.actualizar(empleado);
+		//empleadoService.eliminar(2);
 		
 		/*
 		Inquilino inquilino=new Inquilino();
@@ -105,6 +120,9 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 		inquilino.setRenta(800.5f);
 		inquilinoService.insertar(inquilino);
 		*/
+//		inquilinoService.actualizar(inquilino);
+//		inquilinoService.eliminar(2);
+		
 		/*
 		Libro libro= new Libro();
 		libro.setAutor("Lewis Carroll");
@@ -114,6 +132,9 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 		libro.setTitulo("Alicia en el pais de las maravillas");
 		libroService.insertar(libro);
 		*/
+//		libroService.actualizar(libro);
+//		libroService.eliminar(2);
+		
 		/*
 		NinioGuarderia ninio=new NinioGuarderia();
 		ninio.setNombre("Blaze");
@@ -123,6 +144,9 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 		ninio.setPadres("Jessi y Andres");
 		ninioService.insertar(ninio);
 		*/
+//		ninioService.actualizar(ninio);
+//		ninioService.eliminar(2);
+		
 		
 		/*
 		Pelicula peli=new Pelicula();
@@ -133,6 +157,8 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 		peli.setCodigo(1);
 		peliService.insertar(peli);
 		*/
+//		peliService.actualizar(peli);
+//		peliService.eliminar(2);
 		
 		/*
 		Planta planta = new Planta();
@@ -152,7 +178,10 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 		producto.setNombre("Facundo");
 		productoService.insertar(producto);
 		*/
+//		productoService.actualizar(producto);
+//		productoService.eliminar(2);
 		
+		/*
 		Socios socio=new Socios();
 		socio.setApellido("Vicanco");
 		socio.setNombre("Andres");
@@ -160,7 +189,9 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 		socio.setId(789);
 		socio.setMembresia("gold");
 		socioService.insertar(socio);
-		
+		*/
+//		socioService.actualizar(socio);
+//		socioService.eliminar(2);
 	}
 
 }

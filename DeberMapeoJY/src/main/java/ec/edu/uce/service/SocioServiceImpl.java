@@ -20,19 +20,17 @@ public class SocioServiceImpl implements ISociosService{
 	@Override
 	public Socios buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return socioRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(Socios socios) {
-		// TODO Auto-generated method stub
-		
+		socioRepo.update(socios);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
-		// TODO Auto-generated method stub
-		
+		socioRepo.delete(id);
 	}
 
 }

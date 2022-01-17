@@ -20,19 +20,19 @@ public class LibroServiceImpl implements ILibroService{
 	@Override
 	public Libro buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return libroService.read(id);
 	}
 
 	@Override
 	public void actualizar(Libro libro) {
 		// TODO Auto-generated method stub
-		
+		libroService.update(libro);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		
+		libroService.delete(id);
 	}
 
 }

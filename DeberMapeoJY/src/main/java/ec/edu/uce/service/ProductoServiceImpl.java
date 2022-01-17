@@ -21,19 +21,17 @@ public class ProductoServiceImpl implements IProductoService{
 	@Override
 	public Producto buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return productoRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(Producto producto) {
-		// TODO Auto-generated method stub
-		
+		productoRepo.update(producto);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
-		// TODO Auto-generated method stub
-		
+		productoRepo.delete(id);
 	}
 
 }

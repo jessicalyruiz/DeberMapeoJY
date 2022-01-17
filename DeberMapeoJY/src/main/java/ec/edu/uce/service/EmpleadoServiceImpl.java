@@ -19,19 +19,19 @@ public class EmpleadoServiceImpl implements IEmpleadoService{
 	@Override
 	public Empleado buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return empleadoRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(Empleado empleado) {
 		// TODO Auto-generated method stub
-		
+		empleadoRepo.update(empleado);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		
+		empleadoRepo.delete(id);
 	}
 
 }

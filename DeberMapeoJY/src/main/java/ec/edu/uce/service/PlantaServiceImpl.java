@@ -21,19 +21,17 @@ public class PlantaServiceImpl implements IPlantaService{
 	@Override
 	public Planta buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return plantaRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(Planta planta) {
-		// TODO Auto-generated method stub
-		
+		plantaRepo.update(planta);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
-		// TODO Auto-generated method stub
-		
+		plantaRepo.delete(id);
 	}
 
 }

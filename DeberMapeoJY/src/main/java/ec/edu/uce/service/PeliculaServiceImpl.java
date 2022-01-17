@@ -19,19 +19,18 @@ public class PeliculaServiceImpl implements IPeliculaService{
 	@Override
 	public Pelicula buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return peliRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(Pelicula pelicula) {
-		// TODO Auto-generated method stub
-		
+		peliRepo.update(pelicula);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		
+		peliRepo.delete(id);
 	}
 
 }

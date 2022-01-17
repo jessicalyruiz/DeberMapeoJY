@@ -20,19 +20,19 @@ public class AnimalServiceImpl implements IAnimalService{
 	@Override
 	public Animal buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return animalRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(Animal animal) {
 		// TODO Auto-generated method stub
-		
+		animalRepo.update(animal);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		
+		animalRepo.delete(id);
 	}
 
 }

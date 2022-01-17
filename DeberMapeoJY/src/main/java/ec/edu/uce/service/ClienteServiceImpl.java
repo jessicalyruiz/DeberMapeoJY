@@ -19,19 +19,19 @@ public class ClienteServiceImpl implements IClienteService {
 	@Override
 	public Cliente buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return clienteRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(Cliente cliente) {
 		// TODO Auto-generated method stub
-		
+		clienteRepo.update(cliente);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		
+		clienteRepo.delete(id);
 	}
 
 }

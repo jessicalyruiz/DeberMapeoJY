@@ -18,20 +18,20 @@ public class NinioGuarderiaServiceImpl implements INinioGuarderia{
 
 	@Override
 	public NinioGuarderia buscar(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return ninioRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(NinioGuarderia ninioGuarderia) {
 		// TODO Auto-generated method stub
-		
+		ninioRepo.update(ninioGuarderia);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		
+		ninioRepo.delete(id);
 	}
 
 }

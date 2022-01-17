@@ -1,11 +1,13 @@
 package ec.edu.uce.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 
 import ec.edu.uce.modelo.Animal;
+
 
 @Repository
 public class AnimalRepoImpl implements IAnimalRepo {
@@ -24,20 +26,22 @@ public class AnimalRepoImpl implements IAnimalRepo {
 
 	@Override
 	public Animal read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] datoABuscar=new Object[] {id};
+		return this.jdbcTemplate.queryForObject("select * from animal where id=?", datoABuscar, new BeanPropertyRowMapper<Animal>());
+		 
 	}
 
 	@Override
 	public void update(Animal animal) {
-		// TODO Auto-generated method stub
-		
+		Object[] datosAAcutalizar=new Object[] {animal.getId(),animal.getEspecie(),animal.getCuidados(), animal.getNombre(),animal.getEdad()};
+		this.jdbcTemplate.update("update animal set id=?,especie=?,cuidados=?,nombre=?, edad=?  where id=?", datosAAcutalizar);
+
 	}
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-		
+		Object[] datoABorrar=new Object[] {id};
+		this.jdbcTemplate.update("delete from animal where id=?",datoABorrar);
 	}
 
 }
