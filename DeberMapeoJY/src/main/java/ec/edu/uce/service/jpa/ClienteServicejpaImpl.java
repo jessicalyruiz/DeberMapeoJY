@@ -37,4 +37,10 @@ public class ClienteServicejpaImpl implements IClienteServicejpa {
 		clienteRepo.delete(id);
 	}
 
+	@Override
+	public Clientejpa buscarApellido(String apellido) {
+		// TODO Auto-generated method stub
+		return clienteRepo.buscarApellido(apellido);
+	}
+
 }

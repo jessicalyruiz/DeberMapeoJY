@@ -2,6 +2,7 @@ package ec.edu.uce.repository.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 
-import ec.edu.uce.modelo.Planta;
+
 import ec.edu.uce.modelo.jpa.Plantajpa;
 import ec.edu.uce.repository.IPlantaRepo;
 @Repository
@@ -27,7 +28,7 @@ public class PlantaRepojpaImpljpa implements IPlantaRepojpa {
 
 	@Override
 	public Plantajpa read(Integer id) {
-		return null; 
+		return this.entityManager.find(Plantajpa.class, id); 
 	}
 
 	@Override
@@ -37,6 +38,17 @@ public class PlantaRepojpaImpljpa implements IPlantaRepojpa {
 
 	@Override
 	public void delete(Integer id) {
+		Plantajpa planta=this.read(id);
+		this.entityManager.remove(planta);
 		}
+
+	@Override
+	public Plantajpa buscarNombreComun(String nombre) {
+		// TODO Auto-generated method stub
+		Query miQuiery=this.entityManager.createQuery("select p from Plantajpa p where p.nombreComun=:valor");
+		miQuiery.setParameter("valor", nombre);
+		Plantajpa planta=(Plantajpa) miQuiery.getSingleResult();
+		return planta;
+	}
 
 }

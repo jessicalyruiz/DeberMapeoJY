@@ -9,4 +9,5 @@ public interface IAnimalRepojpa {
 	public Animaljpa read(Integer id); 
 	public void update(Animaljpa animal); 
 	public void delete(Integer id); 
+	public Animaljpa buscarEspecie(String especie);
 }

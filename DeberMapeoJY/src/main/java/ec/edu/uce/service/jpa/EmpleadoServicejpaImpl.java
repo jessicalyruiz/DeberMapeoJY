@@ -37,4 +37,10 @@ public class EmpleadoServicejpaImpl implements IEmpleadoServicejpa{
 		empleadoRepo.delete(id);
 	}
 
+	@Override
+	public Empleadojpa buscarApellido(String apellido) {
+		// TODO Auto-generated method stub
+		return empleadoRepo.buscarApellido(apellido);
+	}
+
 }

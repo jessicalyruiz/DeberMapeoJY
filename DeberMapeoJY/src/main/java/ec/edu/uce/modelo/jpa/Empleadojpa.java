@@ -6,7 +6,9 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +22,8 @@ public class Empleadojpa {
 	private String apellido;
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_empleado")
+	@SequenceGenerator(name = "seq_empleado", sequenceName = "seq_empleado",allocationSize = 1 )
 	@Column(name = "id")
 	private Integer id;
 	

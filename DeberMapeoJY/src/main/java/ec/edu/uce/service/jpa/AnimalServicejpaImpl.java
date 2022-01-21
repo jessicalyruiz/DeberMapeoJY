@@ -37,4 +37,10 @@ public class AnimalServicejpaImpl implements IAnimalServicejpa{
 		animalRepo.delete(id);
 	}
 
+	@Override
+	public Animaljpa buscarEspecie(String especie) {
+		// TODO Auto-generated method stub
+		return animalRepo.buscarEspecie(especie);
+	}
+
 }

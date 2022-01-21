@@ -9,4 +9,5 @@ public interface IClienteRepojpa {
 	public Clientejpa read(Integer id); 
 	public void update(Clientejpa cliente); 
 	public void delete(Integer id); 
+	public Clientejpa buscarApellido(String apellido); 
 }

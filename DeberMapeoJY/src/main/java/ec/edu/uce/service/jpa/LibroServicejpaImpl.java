@@ -12,30 +12,36 @@ import ec.edu.uce.service.ILibroService;
 public class LibroServicejpaImpl implements ILibroServicejpa{
 
 	@Autowired
-	private ILibroRepojpa libroService;
+	private ILibroRepojpa libroRepo;
 	
 	@Override
 	public void insertar(Librojpa libro) {
 		// TODO Auto-generated method stub
-		libroService.create(libro);
+		libroRepo.create(libro);
 	}
 
 	@Override
 	public Librojpa buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return libroService.read(id);
+		return libroRepo.read(id);
 	}
 
 	@Override
 	public void actualizar(Librojpa libro) {
 		// TODO Auto-generated method stub
-		libroService.update(libro);
+		libroRepo.update(libro);
 	}
 
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		libroService.delete(id);
+		libroRepo.delete(id);
+	}
+
+	@Override
+	public Librojpa buscarAutor(String autor) {
+		// TODO Auto-generated method stub
+		return libroRepo.buscarAutor(autor);
 	}
 
 }

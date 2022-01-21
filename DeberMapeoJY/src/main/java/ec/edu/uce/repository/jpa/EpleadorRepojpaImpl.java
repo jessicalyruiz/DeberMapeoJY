@@ -2,6 +2,7 @@ package ec.edu.uce.repository.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class EpleadorRepojpaImpl implements IEmpleadoRepojpa{
 
 	@Override
 	public Empleadojpa read(Integer id) {
-		return null; 
+		return this.entityManager.find(Empleadojpa.class, id); 
 	}
 
 	@Override
@@ -39,6 +40,17 @@ public class EpleadorRepojpaImpl implements IEmpleadoRepojpa{
 
 	@Override
 	public void delete(Integer id) {
+		Empleadojpa empleadoBorrar=this.read(id);
+		this.entityManager.remove(empleadoBorrar);
 		}
+
+	@Override
+	public Empleadojpa buscarApellido(String apellido) {
+		// TODO Auto-generated method stub
+		Query query=this.entityManager.createQuery("select e from Empleadojpa e where e.apellido=:valor");
+		query.setParameter("valor", apellido);
+		Empleadojpa empleado=(Empleadojpa) query.getSingleResult();
+		return empleado;
+	}
 
 }

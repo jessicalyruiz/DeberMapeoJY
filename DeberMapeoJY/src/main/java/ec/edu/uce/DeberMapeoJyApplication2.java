@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import ec.edu.uce.modelo.Animal;
 import ec.edu.uce.modelo.jpa.Animaljpa;
 import ec.edu.uce.modelo.jpa.Clientejpa;
 import ec.edu.uce.modelo.jpa.Empleadojpa;
@@ -52,14 +53,22 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		
 		Animaljpa animal=new Animaljpa();
 		
-		
-//		animal.setEspecie("conejo");
-//		animal.setNombre("bombom");
-//		animal.setEdad(1);
-//		animal.setCuidados("darle agua" );
-//		animalService.insertar(animal);
-//		
-		
+		/*
+		animal.setEspecie("gato");
+		animal.setNombre("kitty");
+		animal.setEdad(1);
+		animal.setCuidados("nada" );
+		animalService.insertar(animal);
+		animalService.eliminar(8);
+		animalService.eliminar(9);
+		animalService.eliminar(7);
+		animalService.eliminar(5);
+		Animaljpa animalEspecie=animalService.buscarEspecie("gato");
+		Animaljpa animalB=animalService.buscar(1);
+		System.out.println("*******Animales");
+		System.out.println(animalEspecie.toString());
+		System.out.println(animalB.toString());
+		*/
 		
 //		Animaljpa animal2=new Animaljpa();
 //		animal.setId(4);
@@ -70,55 +79,66 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 //		animalService.actualizar(animal2);
 		
 		
+		/*
 		
+		Clientejpa cliente= new Clientejpa();
+		cliente.setApellido("Yanez ruiz");
+		cliente.setNombre("Jessica");
+		cliente.setDireccion("via Quevedo");
+		cliente.setEmail("jlyanez@uce.edu.ec");
 		
-//		Clientejpa cliente= new Clientejpa();
-//		cliente.setApellido("Yanez ruiz");
-//		cliente.setNombre("JJessica");
-//		cliente.setDireccion("via Quevedo");
-//		cliente.setEmail("jlyanez@uce.edu.ec");
-//		cliente.setId(230011);
-//		//clienteService.insertar(cliente);
-//		clienteService.actualizar(cliente);
+		//clienteService.insertar(cliente);
+		//clienteService.actualizar(cliente);
 		
+		Clientejpa clienteApellido=clienteService.buscarApellido("ruiz");
+		Clientejpa cliente3=clienteService.buscar(4);
+		//clienteService.eliminar(8);
+		System.out.println(cliente3.toString());
+		System.out.println(clienteApellido.toString());
 		
+		*/
 		
-//		Empleadojpa empleado=new Empleadojpa();
-//		empleado.setApellido("vivanco");
-//		empleado.setNombre("Andres");
-//		//empleado.setId(1700);
-//		empleado.setPuesto("gerente");
-//		empleado.setFechaInicio( LocalDate.of(2018, Month.JUNE, 24));
-//		empleadoService.insertar(empleado);
-//		
-//		//empleadoService.actualizar(empleado);
+		/*
+		Empleadojpa empleado=new Empleadojpa();
+		empleado.setApellido("vivanco");
+		empleado.setNombre("Andres");
+		//empleado.setId(1700);
+		empleado.setPuesto("gerente");
+		empleado.setFechaInicio( LocalDate.of(2018, Month.JUNE, 24));
+		empleadoService.insertar(empleado);
 		
+		//empleadoService.actualizar(empleado);
+		empleadoService.eliminar(2);
+		System.out.println(empleadoService.buscar(10).toString());
+		System.out.println(empleadoService.buscarApellido("Lincango"));
+		*/
 		
+		/*
+		Librojpa libro= new Librojpa();
+		libro.setAutor("hhh");
+		libro.setCantidad(70);
+		//libro.setIsbn(789456123);
+		libro.setSinopsis("cuenta la historia de una niña alemana, Liesel, a quien sus padres dejan en adopción antes de huir de la Alemania nazi tiempo antes de la Segunda Guerra Mundial");
+		libro.setTitulo("La ladrona de libros");
+		libroService.insertar(libro);
 		
-		
-		
-//		Librojpa libro= new Librojpa();
-//		libro.setAutor("Zusak");
-//		libro.setCantidad(70);
-//		//libro.setIsbn(789456123);
-//		libro.setSinopsis("cuenta la historia de una niña alemana, Liesel, a quien sus padres dejan en adopción antes de huir de la Alemania nazi tiempo antes de la Segunda Guerra Mundial");
-//		libro.setTitulo("La ladrona de libros");
-//		libroService.insertar(libro);
-//		
-////		libroService.actualizar(libro);
-//		
-		
-		
+//		libroService.actualizar(libro);
+		System.out.println(libroService.buscar(1).toString());
+		System.out.println(libroService.buscarAutor("Zusak").toString());
+		libroService.eliminar(1);
+		*/
 		
 		Plantajpa planta = new Plantajpa();
-		planta.setId(15);
+		
 		planta.setNombreCientifico("Euphorbiaceae");
 		planta.setNombreComun("Corona de cristo");
 		planta.setEdad("2 anios");
 		planta.setCuidados("poco riego y mucha luz");
-		//plantaService.insertar(planta);
-		plantaService.actualizar(planta);
-		
+		plantaService.insertar(planta);
+		//plantaService.actualizar(planta);
+		//plantaService.eliminar(1);
+		System.out.println(plantaService.buscar(1).toString());
+		System.out.println(plantaService.buscarNombreComun("rosa").toString());
 	
 	}
 

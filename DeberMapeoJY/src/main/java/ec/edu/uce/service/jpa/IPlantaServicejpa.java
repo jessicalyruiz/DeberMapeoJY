@@ -9,4 +9,5 @@ public interface IPlantaServicejpa {
 	public Plantajpa buscar(Integer id); 
 	public void actualizar(Plantajpa planta); 
 	public void eliminar(Integer id); 
+	public Plantajpa buscarNombreComun(String nombre);
 }

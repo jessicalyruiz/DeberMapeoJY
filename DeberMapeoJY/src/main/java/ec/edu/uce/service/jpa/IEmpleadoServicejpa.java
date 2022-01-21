@@ -10,4 +10,5 @@ public interface IEmpleadoServicejpa {
 	public Empleadojpa buscar(Integer id); 
 	public void actualizar(Empleadojpa empleado); 
 	public void eliminar(Integer id); 
+	public Empleadojpa buscarApellido(String apellido);
 }

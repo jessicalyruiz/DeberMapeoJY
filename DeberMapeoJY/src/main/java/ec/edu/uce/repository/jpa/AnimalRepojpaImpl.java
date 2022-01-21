@@ -2,6 +2,7 @@ package ec.edu.uce.repository.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class AnimalRepojpaImpl implements IAnimalRepojpa {
 
 	@Override
 	public Animaljpa read(Integer id) {
-		return null;
+		return this.entityManager.find(Animaljpa.class, id);
 	}
 
 	@Override
@@ -39,7 +40,18 @@ public class AnimalRepojpaImpl implements IAnimalRepojpa {
 
 	@Override
 	public void delete(Integer id) {
+		Animaljpa animalBorar=this.read(id);
+		this.entityManager.remove(animalBorar);
 		}
+
+	@Override
+	public Animaljpa buscarEspecie(String especie) {
+		
+		Query query=this.entityManager.createQuery("Select a from Animaljpa a where a.especie=:valor");
+		query.setParameter("valor", especie);
+		Animaljpa animal= (Animaljpa) query.getSingleResult();
+		return animal;
+	}
 
 	
 

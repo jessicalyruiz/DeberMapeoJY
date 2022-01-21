@@ -8,4 +8,5 @@ public interface IAnimalServicejpa {
 	public Animaljpa buscar(Integer id); 
 	public void actualizar(Animaljpa animal); 
 	public void eliminar(Integer id); 
+	public Animaljpa buscarEspecie(String especie);
 }

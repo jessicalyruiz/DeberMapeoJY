@@ -10,4 +10,5 @@ public interface ILibroRepojpa {
 	public Librojpa read(Integer id); 
 	public void update(Librojpa libro); 
 	public void delete(Integer id); 
+	public Librojpa buscarAutor(String autor);
 }

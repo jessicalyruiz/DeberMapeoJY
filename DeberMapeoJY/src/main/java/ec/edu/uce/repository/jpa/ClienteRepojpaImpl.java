@@ -2,6 +2,7 @@ package ec.edu.uce.repository.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class ClienteRepojpaImpl implements IClienteRepojpa {
 
 	@Override
 	public Clientejpa read(Integer id) {
-		return null; 
+		return this.entityManager.find(Clientejpa.class, id); 
 	}
 
 	@Override
@@ -37,6 +38,16 @@ public class ClienteRepojpaImpl implements IClienteRepojpa {
 
 	@Override
 	public void delete(Integer id) {
+		Clientejpa clienteBorrar=this.read(id);
+		this.entityManager.remove(clienteBorrar);
 		}
+
+	@Override
+	public Clientejpa buscarApellido(String apellido) {
+		Query miQuery=this.entityManager.createQuery("select c from Clientejpa c where c.apellido=:valor");
+		miQuery.setParameter("valor", apellido);
+		Clientejpa cliente=(Clientejpa) miQuery.getSingleResult();
+		return cliente;
+	}
 
 }

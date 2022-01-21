@@ -10,4 +10,5 @@ public interface IPlantaRepojpa {
 	public Plantajpa read(Integer id); 
 	public void update(Plantajpa planta); 
 	public void delete(Integer id); 
+	public Plantajpa buscarNombreComun(String nombre);
 }

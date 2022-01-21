@@ -10,4 +10,5 @@ public interface IClienteServicejpa {
 	public Clientejpa buscar(Integer id); 
 	public void actualizar(Clientejpa cliente); 
 	public void eliminar(Integer id); 
+	public Clientejpa buscarApellido(String apellido); 
 }

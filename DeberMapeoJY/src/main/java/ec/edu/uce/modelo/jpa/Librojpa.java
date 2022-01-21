@@ -3,7 +3,9 @@ package ec.edu.uce.modelo.jpa;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +16,8 @@ public class Librojpa {
 	private String titulo;
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_libro")
+	@SequenceGenerator(name = "seq_libro", sequenceName = "seq_libro",allocationSize = 1 )
 	@Column(name = "isbn")
 	private Integer isbn;
 	

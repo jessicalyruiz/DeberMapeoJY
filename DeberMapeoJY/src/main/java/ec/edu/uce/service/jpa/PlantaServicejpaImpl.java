@@ -37,4 +37,10 @@ public class PlantaServicejpaImpl implements IPlantaServicejpa{
 		plantaRepo.delete(id);
 	}
 
+	@Override
+	public Plantajpa buscarNombreComun(String nombre) {
+		// TODO Auto-generated method stub
+		return plantaRepo.buscarNombreComun(nombre);
+	}
+
 }
