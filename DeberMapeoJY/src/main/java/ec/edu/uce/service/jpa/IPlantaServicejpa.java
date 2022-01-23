@@ -10,4 +10,6 @@ public interface IPlantaServicejpa {
 	public void actualizar(Plantajpa planta); 
 	public void eliminar(Integer id); 
 	public Plantajpa buscarNombreComun(String nombre);
+	public Plantajpa buscarNombreComunNamed(String nombre);
+	public Plantajpa buscarNombreComunTyped(String nombre);
 }

@@ -3,6 +3,7 @@ package ec.edu.uce.repository.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,21 @@ public class ClienteRepojpaImpl implements IClienteRepojpa {
 		miQuery.setParameter("valor", apellido);
 		Clientejpa cliente=(Clientejpa) miQuery.getSingleResult();
 		return cliente;
+	}
+
+	@Override
+	public Clientejpa buscarApellidoNamed(String apellido) {
+		Query query=this.entityManager.createNamedQuery("Cliente.buscarApellidoNamed");
+		query.setParameter("valor", apellido);
+		Clientejpa cliente=(Clientejpa) query.getSingleResult();
+		return cliente;
+	}
+
+	@Override
+	public Clientejpa buscarApellidoTyped(String apellido) {
+		TypedQuery<Clientejpa> query=(TypedQuery<Clientejpa>) this.entityManager.createQuery("select c from Clientejpa c where c.apellido=:valor");
+		query.setParameter("valor", apellido);
+		return query.getSingleResult();
 	}
 
 }

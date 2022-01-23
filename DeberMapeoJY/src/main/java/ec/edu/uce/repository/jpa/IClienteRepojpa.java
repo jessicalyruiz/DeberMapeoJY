@@ -10,4 +10,6 @@ public interface IClienteRepojpa {
 	public void update(Clientejpa cliente); 
 	public void delete(Integer id); 
 	public Clientejpa buscarApellido(String apellido); 
+	public Clientejpa buscarApellidoNamed(String apellido); 
+	public Clientejpa buscarApellidoTyped(String apellido); 
 }

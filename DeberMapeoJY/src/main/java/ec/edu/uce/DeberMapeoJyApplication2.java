@@ -3,6 +3,8 @@ package ec.edu.uce;
 import java.time.LocalDate;
 import java.time.Month;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,6 +27,7 @@ import ec.edu.uce.service.jpa.IPlantaServicejpa;
 @SpringBootApplication
 public class DeberMapeoJyApplication2 implements CommandLineRunner{
 	
+	private static final Logger LOG= (Logger) LoggerFactory.getLogger(DeberMapeoJyApplication2.class);
 	@Autowired
 	private IAnimalServicejpa animalService;
 	@Autowired
@@ -69,7 +72,8 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		System.out.println(animalEspecie.toString());
 		System.out.println(animalB.toString());
 		*/
-		
+		LOG.info(animalService.buscarEspecieType("gato").toString());
+		LOG.info(animalService.buscarEspecieNamed("gato").toString());
 //		Animaljpa animal2=new Animaljpa();
 //		animal.setId(4);
 //		animal2.setEspecie("conejo");
@@ -78,7 +82,8 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 //		animal2.setCuidados("evitar banio" );
 //		animalService.actualizar(animal2);
 		
-		
+		LOG.info(clienteService.buscarApellidoNamed("ruiz").toString());
+		LOG.info(clienteService.buscarApellidoTyped("ruiz").toString());
 		/*
 		
 		Clientejpa cliente= new Clientejpa();
@@ -112,7 +117,8 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		System.out.println(empleadoService.buscar(10).toString());
 		System.out.println(empleadoService.buscarApellido("Lincango"));
 		*/
-		
+		LOG.info(empleadoService.buscarApellidoNamed("Lincango").toString());
+		LOG.info(empleadoService.buscarApellidoTyped("Lincango").toString());
 		/*
 		Librojpa libro= new Librojpa();
 		libro.setAutor("hhh");
@@ -128,6 +134,9 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		libroService.eliminar(1);
 		*/
 		
+		LOG.info(libroService.buscarAutorNamed("Zusak").toString());
+		LOG.info(libroService.buscarAutorTyped("Zusak").toString());
+		/*
 		Plantajpa planta = new Plantajpa();
 		
 		planta.setNombreCientifico("Euphorbiaceae");
@@ -139,6 +148,9 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		//plantaService.eliminar(1);
 		System.out.println(plantaService.buscar(1).toString());
 		System.out.println(plantaService.buscarNombreComun("rosa").toString());
+		*/
+		LOG.info(plantaService.buscarNombreComunNamed("rosa").toString());
+		LOG.info(plantaService.buscarNombreComunTyped("rosa").toString());
 	
 	}
 

@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "animal")
+@NamedQuery(name = "Animal.buscarEspecieNamed",query = "Select a from Animaljpa a where a.especie=:valor")
 public class Animaljpa {
 
 	@Id

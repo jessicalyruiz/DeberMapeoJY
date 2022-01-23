@@ -11,4 +11,6 @@ public interface ILibroServicejpa {
 	public void actualizar(Librojpa libro); 
 	public void eliminar(Integer id); 
 	public Librojpa buscarAutor(String autor);
+	public Librojpa buscarAutorNamed(String autor);
+	public Librojpa buscarAutorTyped(String autor);
 }

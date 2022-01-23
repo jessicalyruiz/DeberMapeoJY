@@ -43,4 +43,16 @@ public class EmpleadoServicejpaImpl implements IEmpleadoServicejpa{
 		return empleadoRepo.buscarApellido(apellido);
 	}
 
+	@Override
+	public Empleadojpa buscarApellidoNamed(String apellido) {
+		// TODO Auto-generated method stub
+		return empleadoRepo.buscarApellidoNamed(apellido);
+	}
+
+	@Override
+	public Empleadojpa buscarApellidoTyped(String apellido) {
+		// TODO Auto-generated method stub
+		return empleadoRepo.buscarApellidoTyped(apellido);
+	}
+
 }

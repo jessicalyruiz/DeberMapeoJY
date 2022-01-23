@@ -44,4 +44,16 @@ public class LibroServicejpaImpl implements ILibroServicejpa{
 		return libroRepo.buscarAutor(autor);
 	}
 
+	@Override
+	public Librojpa buscarAutorNamed(String autor) {
+		// TODO Auto-generated method stub
+		return libroRepo.buscarAutorNamed(autor);
+	}
+
+	@Override
+	public Librojpa buscarAutorTyped(String autor) {
+		// TODO Auto-generated method stub
+		return libroRepo.buscarAutorTyped(autor);
+	}
+
 }

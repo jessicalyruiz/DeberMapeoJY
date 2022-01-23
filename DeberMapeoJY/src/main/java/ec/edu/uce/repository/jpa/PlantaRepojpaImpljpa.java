@@ -3,6 +3,7 @@ package ec.edu.uce.repository.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,21 @@ public class PlantaRepojpaImpljpa implements IPlantaRepojpa {
 		miQuiery.setParameter("valor", nombre);
 		Plantajpa planta=(Plantajpa) miQuiery.getSingleResult();
 		return planta;
+	}
+
+	@Override
+	public Plantajpa buscarNombreComunNamed(String nombre) {
+		Query miQuiery=this.entityManager.createNamedQuery("Planta.buscarNombreComunNamed");
+		miQuiery.setParameter("valor", nombre);
+		Plantajpa planta=(Plantajpa) miQuiery.getSingleResult();
+		return planta;
+	}
+
+	@Override
+	public Plantajpa buscarNombreComunTyped(String nombre) {
+		TypedQuery<Plantajpa> miQuiery=(TypedQuery<Plantajpa>) this.entityManager.createQuery("select p from Plantajpa p where p.nombreComun=:valor");
+		miQuiery.setParameter("valor", nombre);
+		return miQuiery.getSingleResult();
 	}
 
 }

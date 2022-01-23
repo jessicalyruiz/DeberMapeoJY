@@ -11,4 +11,6 @@ public interface IEmpleadoRepojpa {
 	public void update(Empleadojpa empleado); 
 	public void delete(Integer id); 
 	public Empleadojpa buscarApellido(String apellido);
+	public Empleadojpa buscarApellidoNamed(String apellido);
+	public Empleadojpa buscarApellidoTyped(String apellido);
 }

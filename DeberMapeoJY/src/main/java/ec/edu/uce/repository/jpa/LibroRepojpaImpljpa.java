@@ -3,6 +3,7 @@ package ec.edu.uce.repository.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,21 @@ public class LibroRepojpaImpljpa implements ILibroRepojpa{
 		miQuiery.setParameter("valor", autor);
 		Librojpa libro= (Librojpa) miQuiery.getSingleResult();
 		return libro;
+	}
+
+	@Override
+	public Librojpa buscarAutorNamed(String autor) {
+		Query miQuiery=this.entityManager.createNamedQuery("Libro.buacarAutor");
+		miQuiery.setParameter("valor", autor);
+		Librojpa libro= (Librojpa) miQuiery.getSingleResult();
+		return libro;
+	}
+
+	@Override
+	public Librojpa buscarAutorTyped(String autor) {
+		TypedQuery<Librojpa> miQuiery=(TypedQuery<Librojpa>) this.entityManager.createQuery("select l from Librojpa l where l.autor=:valor");
+		miQuiery.setParameter("valor", autor);
+		return miQuiery.getSingleResult();
 	}
 
 }

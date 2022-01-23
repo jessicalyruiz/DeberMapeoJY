@@ -11,4 +11,6 @@ public interface ILibroRepojpa {
 	public void update(Librojpa libro); 
 	public void delete(Integer id); 
 	public Librojpa buscarAutor(String autor);
+	public Librojpa buscarAutorNamed(String autor);
+	public Librojpa buscarAutorTyped(String autor);
 }

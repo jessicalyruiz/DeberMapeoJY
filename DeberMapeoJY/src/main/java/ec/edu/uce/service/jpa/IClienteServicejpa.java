@@ -11,4 +11,6 @@ public interface IClienteServicejpa {
 	public void actualizar(Clientejpa cliente); 
 	public void eliminar(Integer id); 
 	public Clientejpa buscarApellido(String apellido); 
+	public Clientejpa buscarApellidoNamed(String apellido); 
+	public Clientejpa buscarApellidoTyped(String apellido); 
 }
