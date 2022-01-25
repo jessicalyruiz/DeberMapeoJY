@@ -55,4 +55,10 @@ public class EmpleadoServicejpaImpl implements IEmpleadoServicejpa{
 		return empleadoRepo.buscarApellidoTyped(apellido);
 	}
 
+	@Override
+	public Empleadojpa buscarApellidoNative(String apellido) {
+		// TODO Auto-generated method stub
+		return empleadoRepo.buscarApellidoNative(apellido);
+	}
+
 }

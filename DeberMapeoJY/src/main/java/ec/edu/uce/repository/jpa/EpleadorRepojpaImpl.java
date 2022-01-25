@@ -69,4 +69,12 @@ public class EpleadorRepojpaImpl implements IEmpleadoRepojpa{
 		return query.getSingleResult();
 	}
 
+	@Override
+	public Empleadojpa buscarApellidoNative(String apellido) {
+		Query query=this.entityManager.createNativeQuery("select * from empleado e where e.apellido=:valor", Empleadojpa.class);
+		query.setParameter("valor", apellido);
+		Empleadojpa empleado=(Empleadojpa) query.getSingleResult();
+		return empleado;
+	}
+
 }

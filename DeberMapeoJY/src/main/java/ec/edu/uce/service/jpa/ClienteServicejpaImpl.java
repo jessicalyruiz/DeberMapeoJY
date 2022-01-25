@@ -55,4 +55,10 @@ public class ClienteServicejpaImpl implements IClienteServicejpa {
 		return clienteRepo.buscarApellidoTyped(apellido);
 	}
 
+	@Override
+	public Clientejpa buscarApellidoNative(String apellido) {
+		// TODO Auto-generated method stub
+		return clienteRepo.buscarApellidoNative(apellido);
+	}
+
 }

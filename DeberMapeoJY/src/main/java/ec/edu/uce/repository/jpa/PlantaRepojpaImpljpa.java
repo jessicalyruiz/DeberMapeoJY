@@ -67,4 +67,12 @@ public class PlantaRepojpaImpljpa implements IPlantaRepojpa {
 		return miQuiery.getSingleResult();
 	}
 
+	@Override
+	public Plantajpa buscarNombreComunNative(String nombre) {
+		Query miQuiery=this.entityManager.createNativeQuery("select * from planta p where p.nombreComun=:valor", Plantajpa.class);
+		miQuiery.setParameter("valor", nombre);
+		Plantajpa planta=(Plantajpa) miQuiery.getSingleResult();
+		return planta;
+	}
+
 }

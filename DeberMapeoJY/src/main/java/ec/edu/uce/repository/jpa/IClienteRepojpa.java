@@ -12,4 +12,5 @@ public interface IClienteRepojpa {
 	public Clientejpa buscarApellido(String apellido); 
 	public Clientejpa buscarApellidoNamed(String apellido); 
 	public Clientejpa buscarApellidoTyped(String apellido); 
+	public Clientejpa buscarApellidoNative(String apellido); 
 }

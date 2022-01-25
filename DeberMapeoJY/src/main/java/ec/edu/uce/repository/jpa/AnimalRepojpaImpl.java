@@ -76,6 +76,14 @@ public class AnimalRepojpaImpl implements IAnimalRepojpa {
 		return animal;
 	}
 
+	@Override
+	public Animaljpa buscarEspecieNative(String especie) {
+		Query query=this.entityManager.createNativeQuery("select * from animal a where a.especie=:valor", Animaljpa.class);
+		query.setParameter("valor", especie);
+		Animaljpa animal=(Animaljpa) query.getSingleResult();
+		return animal;
+	}
+
 	
 
 

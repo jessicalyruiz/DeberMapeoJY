@@ -12,4 +12,5 @@ public interface IAnimalRepojpa {
 	public Animaljpa buscarEspecie(String especie);
 	public Animaljpa buscarEspecieType(String especie);
 	public Animaljpa buscarEspecieNamed(String especie);
+	public Animaljpa buscarEspecieNative(String especie);
 }

@@ -67,4 +67,12 @@ public class LibroRepojpaImpljpa implements ILibroRepojpa{
 		return miQuiery.getSingleResult();
 	}
 
+	@Override
+	public Librojpa buscarAutorNative(String autor) {
+		Query miQuiery=this.entityManager.createNativeQuery("select * from libro l where l.autor=:valor", Librojpa.class);
+		miQuiery.setParameter("valor", autor);
+		Librojpa libro= (Librojpa) miQuiery.getSingleResult();
+		return libro;
+	}
+
 }

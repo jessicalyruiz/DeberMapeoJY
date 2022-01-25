@@ -66,4 +66,12 @@ public class ClienteRepojpaImpl implements IClienteRepojpa {
 		return query.getSingleResult();
 	}
 
+	@Override
+	public Clientejpa buscarApellidoNative(String apellido) {
+		Query query=this.entityManager.createNativeQuery("select * from cliente c where c.apellido=:valor", Clientejpa.class);
+		query.setParameter("valor", apellido);
+		Clientejpa cliente=(Clientejpa) query.getSingleResult();
+		return cliente;
+	}
+
 }

@@ -55,4 +55,10 @@ public class AnimalServicejpaImpl implements IAnimalServicejpa{
 		return animalRepo.buscarEspecieNamed(especie);
 	}
 
+	@Override
+	public Animaljpa buscarEspecieNative(String especie) {
+		// TODO Auto-generated method stub
+		return animalRepo.buscarEspecieNative(especie);
+	}
+
 }

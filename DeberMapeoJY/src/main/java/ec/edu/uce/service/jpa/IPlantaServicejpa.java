@@ -12,4 +12,5 @@ public interface IPlantaServicejpa {
 	public Plantajpa buscarNombreComun(String nombre);
 	public Plantajpa buscarNombreComunNamed(String nombre);
 	public Plantajpa buscarNombreComunTyped(String nombre);
+	public Plantajpa buscarNombreComunNative(String nombre);
 }
