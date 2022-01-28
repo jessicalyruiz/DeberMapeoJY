@@ -13,4 +13,5 @@ public interface IClienteServicejpa {
 	public Clientejpa buscarApellido(String apellido); 
 	public Clientejpa buscarApellidoNamed(String apellido); 
 	public Clientejpa buscarApellidoTyped(String apellido); 
+	public Clientejpa buscarApellidoCriteriaAPI(String apellido);
 }

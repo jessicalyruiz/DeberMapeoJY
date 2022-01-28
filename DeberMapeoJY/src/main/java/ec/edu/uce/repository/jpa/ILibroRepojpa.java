@@ -13,4 +13,5 @@ public interface ILibroRepojpa {
 	public Librojpa buscarAutor(String autor);
 	public Librojpa buscarAutorNamed(String autor);
 	public Librojpa buscarAutorTyped(String autor);
+	public Librojpa buscarAutorCriteriaAPI(String autor);
 }

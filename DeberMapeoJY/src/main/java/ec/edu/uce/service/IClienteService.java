@@ -9,4 +9,5 @@ public interface IClienteService {
 	public Cliente buscar(Integer id); 
 	public void actualizar(Cliente cliente); 
 	public void eliminar(Integer id); 
+	
 }

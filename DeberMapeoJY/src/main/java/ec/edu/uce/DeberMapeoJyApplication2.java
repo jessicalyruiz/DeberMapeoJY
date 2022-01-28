@@ -72,8 +72,8 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		System.out.println(animalEspecie.toString());
 		System.out.println(animalB.toString());
 		*/
-		LOG.info(animalService.buscarEspecieType("gato").toString());
-		LOG.info(animalService.buscarEspecieNamed("gato").toString());
+//		LOG.info(animalService.buscarEspecieType("gato").toString());
+//		LOG.info(animalService.buscarEspecieNamed("gato").toString());
 //		Animaljpa animal2=new Animaljpa();
 //		animal.setId(4);
 //		animal2.setEspecie("conejo");
@@ -82,8 +82,8 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 //		animal2.setCuidados("evitar banio" );
 //		animalService.actualizar(animal2);
 		
-		LOG.info(clienteService.buscarApellidoNamed("ruiz").toString());
-		LOG.info(clienteService.buscarApellidoTyped("ruiz").toString());
+//		LOG.info(clienteService.buscarApellidoNamed("ruiz").toString());
+//		LOG.info(clienteService.buscarApellidoTyped("ruiz").toString());
 		/*
 		
 		Clientejpa cliente= new Clientejpa();
@@ -117,8 +117,8 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		System.out.println(empleadoService.buscar(10).toString());
 		System.out.println(empleadoService.buscarApellido("Lincango"));
 		*/
-		LOG.info(empleadoService.buscarApellidoNamed("Lincango").toString());
-		LOG.info(empleadoService.buscarApellidoTyped("Lincango").toString());
+//		LOG.info(empleadoService.buscarApellidoNamed("Lincango").toString());
+//		LOG.info(empleadoService.buscarApellidoTyped("Lincango").toString());
 		/*
 		Librojpa libro= new Librojpa();
 		libro.setAutor("hhh");
@@ -134,8 +134,8 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		libroService.eliminar(1);
 		*/
 		
-		LOG.info(libroService.buscarAutorNamed("Zusak").toString());
-		LOG.info(libroService.buscarAutorTyped("Zusak").toString());
+//		LOG.info(libroService.buscarAutorNamed("Zusak").toString());
+//		LOG.info(libroService.buscarAutorTyped("Zusak").toString());
 		/*
 		Plantajpa planta = new Plantajpa();
 		
@@ -149,8 +149,17 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		System.out.println(plantaService.buscar(1).toString());
 		System.out.println(plantaService.buscarNombreComun("rosa").toString());
 		*/
-		LOG.info(plantaService.buscarNombreComunNamed("rosa").toString());
-		LOG.info(plantaService.buscarNombreComunTyped("rosa").toString());
+//		LOG.info(plantaService.buscarNombreComunNamed("rosa").toString());
+//		LOG.info(plantaService.buscarNombreComunTyped("rosa").toString());
+		
+		
+		//criteria api
+		LOG.info("********criteria");
+		LOG.info(animalService.buscarEspecieCriteriaAPI("gato").toString());
+		LOG.info(clienteService.buscarApellidoCriteriaAPI("ruiz").toString());
+		LOG.info(empleadoService.buscarApellidoCriteriaAPI("Lincango").toString());
+		LOG.info(libroService.buscarAutorCriteriaAPI("Zusak").toString());
+		LOG.info(plantaService.buscarNombreComunCriteriaAPI("rosa").toString());
 	
 	}
 

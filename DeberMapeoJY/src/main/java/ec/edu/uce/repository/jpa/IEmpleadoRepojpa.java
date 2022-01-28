@@ -13,4 +13,5 @@ public interface IEmpleadoRepojpa {
 	public Empleadojpa buscarApellido(String apellido);
 	public Empleadojpa buscarApellidoNamed(String apellido);
 	public Empleadojpa buscarApellidoTyped(String apellido);
+	public Empleadojpa buscarApellidoCriteriaAPI(String apellido);
 }

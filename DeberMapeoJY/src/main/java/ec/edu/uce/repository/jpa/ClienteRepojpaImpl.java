@@ -4,6 +4,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +16,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import ec.edu.uce.modelo.Cliente;
+import ec.edu.uce.modelo.jpa.Animaljpa;
 import ec.edu.uce.modelo.jpa.Clientejpa;
 import ec.edu.uce.repository.IClienteRepo;
 
@@ -64,6 +69,25 @@ public class ClienteRepojpaImpl implements IClienteRepojpa {
 		TypedQuery<Clientejpa> query=(TypedQuery<Clientejpa>) this.entityManager.createQuery("select c from Clientejpa c where c.apellido=:valor");
 		query.setParameter("valor", apellido);
 		return query.getSingleResult();
+	}
+
+	@Override
+	public Clientejpa buscarApellidoCriteriaAPI(String apellido) {
+		//1.- especifico el tipo de query
+				CriteriaBuilder miCriteria=this.entityManager.getCriteriaBuilder();
+				//2. especifico el tipo de retorno
+				CriteriaQuery<Clientejpa> miQuery=miCriteria.createQuery(Clientejpa.class);
+				//empezar a contruir el SQL
+				//3.- defino el objeto que va a representar la tabla
+				Root<Clientejpa> miTabla=miQuery.from(Clientejpa.class);
+				//4.-Creo los predicados, que son los "where" de criteria API
+				Predicate p1=miCriteria.equal(miTabla.get("apellido"), apellido);
+				//5.-Armo el Query
+				miQuery.select(miTabla).where(p1);
+				//6.-creo un Typed Query
+				TypedQuery<Clientejpa> typedQuery=this.entityManager.createQuery(miQuery);
+				
+				return typedQuery.getSingleResult();
 	}
 
 }

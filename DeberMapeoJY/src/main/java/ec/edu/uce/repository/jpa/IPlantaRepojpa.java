@@ -13,4 +13,6 @@ public interface IPlantaRepojpa {
 	public Plantajpa buscarNombreComun(String nombre);
 	public Plantajpa buscarNombreComunNamed(String nombre);
 	public Plantajpa buscarNombreComunTyped(String nombre);
+	public Plantajpa buscarNombreComunCriteriaAPI(String nombre);
+	
 }

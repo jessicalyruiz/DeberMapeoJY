@@ -4,6 +4,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +78,27 @@ public class AnimalRepojpaImpl implements IAnimalRepojpa {
 		query.setParameter("valor", especie);
 		Animaljpa animal=(Animaljpa) query.getSingleResult();
 		return animal;
+	}
+
+	@Override
+	public Animaljpa buscarEspecieCriteriaAPI(String especie) {
+		//1.- especifico el tipo de query
+		CriteriaBuilder miCriteria=this.entityManager.getCriteriaBuilder();
+		//2. especifico el tipo de retorno
+		CriteriaQuery<Animaljpa> miQuery=miCriteria.createQuery(Animaljpa.class);
+		//empezar a contruir el SQL
+		//3.- defino el objeto que va a representar la tabla
+		Root<Animaljpa> miTabla=miQuery.from(Animaljpa.class);
+		//4.-Creo los predicados, que son los "where" de criteria API
+		Predicate p1=miCriteria.equal(miTabla.get("especie"), especie);
+		//5.-Armo el Query
+		miQuery.select(miTabla).where(p1);
+		//6.-creo un Typed Query
+		TypedQuery<Animaljpa> typedQuery=this.entityManager.createQuery(miQuery);
+		
+		return typedQuery.getSingleResult();
+		
+		
 	}
 
 	

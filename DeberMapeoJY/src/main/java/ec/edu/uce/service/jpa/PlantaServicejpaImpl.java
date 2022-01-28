@@ -55,4 +55,10 @@ public class PlantaServicejpaImpl implements IPlantaServicejpa{
 		return plantaRepo.buscarNombreComunTyped(nombre);
 	}
 
+	@Override
+	public Plantajpa buscarNombreComunCriteriaAPI(String nombre) {
+		// TODO Auto-generated method stub
+		return plantaRepo.buscarNombreComunCriteriaAPI(nombre);
+	}
+
 }
