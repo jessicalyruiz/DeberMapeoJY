@@ -67,6 +67,11 @@ public class Matricula {
 		this.estudiante = estudiante;
 	}
 
+	@Override
+	public String toString() {
+		return "Matricula [id=" + id + ", numero=" + numero + ", colegiatura=" + colegiatura +  "]";
+	}
+
 	
 	
 	

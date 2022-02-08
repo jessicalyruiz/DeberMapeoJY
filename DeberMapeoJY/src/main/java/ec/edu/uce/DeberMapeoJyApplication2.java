@@ -3,6 +3,8 @@ package ec.edu.uce;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,22 +52,23 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run(String... args) throws Exception {
-		
+		/*
 		Estudiante estudiante=new Estudiante();
-		estudiante.setApellido("Yanez");
-		estudiante.setNombre("Jessi");
-		estudiante.setCedula("2300115066");
+		estudiante.setApellido("Lincango");
+		estudiante.setNombre("Andres");
+		estudiante.setCedula("1723420434");
 	
 		Matricula matricula=new Matricula();
-		matricula.setNumero("45-78-56");
-		matricula.setColegiatura(new BigDecimal(0));
+		matricula.setNumero("12-4");
+		matricula.setColegiatura(new BigDecimal(50));
+		matricula.setEstudiante(estudiante);
 		
 		estudiante.setMatricula(matricula);
 		this.estudianteService.guardarEstudiate(estudiante);
 		
-		
+		*/
 		//segundo ejemplo
-		
+		/*
 		Paciente paciente=new Paciente();
 		paciente.setApellido("Vera");
 		paciente.setNombre("Maria");
@@ -78,6 +81,35 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		
 		paciente.setHistoriaClinica(historia);
 		this.pacienteService.guardarPaciente(paciente);
+		*/
+		
+		//******************JOIN
+		
+		List<Estudiante> listaEstudianteApellidoJOIN=this.estudianteService.buscarPorApellidoJOIN("Lincango");
+		LOG.info("*********JOIN **** Longitud: "+ listaEstudianteApellidoJOIN.size());
+		for (Estudiante e : listaEstudianteApellidoJOIN) {
+			LOG.info(e.toString());
+		}
+		
+		List<Estudiante> listaEstudianteApellidoLeftJOIN=this.estudianteService.buscarPorApellidoLEFT("Lincango");
+		LOG.info("*********LEFT **** Longitud: "+ listaEstudianteApellidoLeftJOIN.size());
+		for (Estudiante e : listaEstudianteApellidoLeftJOIN) {
+			LOG.info(e.toString());
+		}
+		
+		
+		List<Estudiante> listaEstudianteApellidoRightJOIN=this.estudianteService.buscarPorApellidoRIGHT("Lincango");
+		LOG.info("*********right **** Longitud: "+ listaEstudianteApellidoRightJOIN.size());
+		for (Estudiante e : listaEstudianteApellidoRightJOIN) {
+			LOG.info(e.toString());
+		}
+		
+		List<Estudiante> listaEstudianteApellidoWHERE=this.estudianteService.buscarPorApellidoWHERE("Lincango");
+		LOG.info("*********WHERE **** Longitud: "+ listaEstudianteApellidoWHERE.size());
+		for (Estudiante e : listaEstudianteApellidoWHERE) {
+			LOG.info(e.toString());
+		}
+		
 	}
 
 }
