@@ -192,6 +192,8 @@ public class DeberMapeoJyApplication implements CommandLineRunner{
 		*/
 //		socioService.actualizar(socio);
 //		socioService.eliminar(2);
+		
+		
+	
 	}
-
 }

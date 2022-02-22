@@ -2,6 +2,7 @@ package ec.edu.uce;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,18 +20,22 @@ import ec.edu.uce.modelo.jpa.Clientejpa;
 import ec.edu.uce.modelo.jpa.Empleadojpa;
 import ec.edu.uce.modelo.jpa.Librojpa;
 import ec.edu.uce.modelo.jpa.Plantajpa;
+import ec.edu.uce.modelo.jpa.relacionadas.Consumo;
 import ec.edu.uce.modelo.jpa.relacionadas.Estudiante;
 import ec.edu.uce.modelo.jpa.relacionadas.HistoriaClinica;
 import ec.edu.uce.modelo.jpa.relacionadas.Matricula;
 import ec.edu.uce.modelo.jpa.relacionadas.Paciente;
+import ec.edu.uce.modelo.jpa.relacionadas.TarjetaCredito;
 import ec.edu.uce.repository.jpa.relacionadas.IPacienteRepo;
 import ec.edu.uce.service.jpa.IAnimalServicejpa;
 import ec.edu.uce.service.jpa.IClienteServicejpa;
 import ec.edu.uce.service.jpa.IEmpleadoServicejpa;
 import ec.edu.uce.service.jpa.ILibroServicejpa;
 import ec.edu.uce.service.jpa.IPlantaServicejpa;
+import ec.edu.uce.service.jpa.relacionadas.IConsumoService;
 import ec.edu.uce.service.jpa.relacionadas.IEstudianteService;
 import ec.edu.uce.service.jpa.relacionadas.IPacienteService;
+import ec.edu.uce.service.jpa.relacionadas.ITarjetaCreditoService;
 
 
 
@@ -44,6 +49,12 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 	
 	@Autowired
 	private IPacienteService pacienteService;
+	
+	@Autowired
+	private ITarjetaCreditoService tarjetaService;
+	
+	@Autowired
+	private IConsumoService consumoService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(DeberMapeoJyApplication2.class, args);
@@ -84,7 +95,7 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		*/
 		
 		//******************JOIN
-		
+		/*
 		List<Estudiante> listaEstudianteApellidoJOIN=this.estudianteService.buscarPorApellidoJOIN("Lincango");
 		LOG.info("*********JOIN **** Longitud: "+ listaEstudianteApellidoJOIN.size());
 		for (Estudiante e : listaEstudianteApellidoJOIN) {
@@ -109,6 +120,30 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		for (Estudiante e : listaEstudianteApellidoWHERE) {
 			LOG.info(e.toString());
 		}
+		*/
+		
+		//////****************************************
+		//tarea 21
+		/*
+		TarjetaCredito tarjeta=new TarjetaCredito();
+		tarjeta.setCedulaPropietario("2300115066");
+		tarjeta.setCupo(new BigDecimal(20000));
+		tarjeta.setNumero("123-456");
+		this.tarjetaService.create(tarjeta);
+		
+		TarjetaCredito tarjeta2=new TarjetaCredito();
+		tarjeta2.setCedulaPropietario("1709782847");
+		tarjeta2.setCupo(new BigDecimal(30000));
+		tarjeta2.setNumero("789-456");
+		this.tarjetaService.create(tarjeta2);
+		*/
+		
+		
+		Consumo consumo=new Consumo();
+		consumo.setFecha(LocalDateTime.now());
+		consumo.setValor(new BigDecimal(1000));
+		//realizo compra
+		this.tarjetaService.realizarCompra(consumo, "123-456");
 		
 	}
 

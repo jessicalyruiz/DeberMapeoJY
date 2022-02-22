@@ -66,7 +66,7 @@ public class AnimalRepojpaImpl implements IAnimalRepojpa {
 	}
 
 	/**
-	 *
+	 * query con nombre, para cuando necesito reutilizarlo
 	 */
 	@Override
 	public Animaljpa buscarEspecieNamed(String especie) {
