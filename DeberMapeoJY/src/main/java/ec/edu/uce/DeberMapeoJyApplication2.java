@@ -141,9 +141,9 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		
 		Consumo consumo=new Consumo();
 		consumo.setFecha(LocalDateTime.now());
-		consumo.setValor(new BigDecimal(1000));
+		consumo.setValor(new BigDecimal(10000));
 		//realizo compra
-		this.tarjetaService.realizarCompra(consumo, "123-456");
+		this.tarjetaService.realizarCompra(consumo, "789-456");
 		
 	}
 

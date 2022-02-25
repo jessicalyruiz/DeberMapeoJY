@@ -11,4 +11,6 @@ public interface ITarjetaCreditoRepo {
 	public void delete(Integer id); 
 	
 	public TarjetaCredito buscarNumeroTarjeta(String numero);
+	
+	public void actualizar(TarjetaCredito tarjeta);
 }

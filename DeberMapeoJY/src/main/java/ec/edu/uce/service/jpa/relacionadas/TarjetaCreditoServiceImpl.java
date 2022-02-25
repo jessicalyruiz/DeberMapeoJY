@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ec.edu.uce.DeberMapeoJyApplication2;
 import ec.edu.uce.modelo.jpa.relacionadas.Consumo;
 import ec.edu.uce.modelo.jpa.relacionadas.TarjetaCredito;
 import ec.edu.uce.repository.jpa.relacionadas.ITarjetaCreditoRepo;
@@ -15,6 +18,8 @@ import ec.edu.uce.repository.jpa.relacionadas.ITarjetaCreditoRepo;
 @Service
 public class TarjetaCreditoServiceImpl implements ITarjetaCreditoService {
 
+	private static final Logger LOG= (Logger) LoggerFactory.getLogger(DeberMapeoJyApplication2.class);
+	
 	@Autowired
 	private ITarjetaCreditoRepo tarjetaRepo;
 	@Autowired
@@ -55,14 +60,19 @@ public class TarjetaCreditoServiceImpl implements ITarjetaCreditoService {
 		tarjeta.setConsumos(consumos);
 		
 		//error
-		tarjeta.setCedulaPropietario(null);
+		//tarjeta.setCedulaPropietario(null);
 		
 		//inserto consumo
 		this.consumoService.create(consumo);
 		//actualizo cupo
 		tarjeta.setCupo(tarjeta.getCupo().subtract(consumo.getValor()));
+		try {
+			this.tarjetaRepo.actualizar(tarjeta);
+		} catch (NullPointerException e) {
+			// TODO: handle exception
+			LOG.error("error en la transaccion");
+		}
 		
-		this.tarjetaRepo.update(tarjeta);
 		
 	}
 
