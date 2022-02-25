@@ -58,10 +58,10 @@ public class TarjetaCreditoRepoImpl implements ITarjetaCreditoRepo{
 	public void actualizar(TarjetaCredito tarjeta) {
 		// TODO Auto-generated method stub
 		this.entityManager.merge(tarjeta);
-		//try {
+		try {
 				throw new NullPointerException();
-//				}catch (ArrayIndexOutOfBoundsException e) {
-//					LOG.error("Error en repository  Actualizar");
-//			}
+				}catch (NullPointerException e) {
+					LOG.error("Error en repository  Actualizar");
+			}
 	}
 }

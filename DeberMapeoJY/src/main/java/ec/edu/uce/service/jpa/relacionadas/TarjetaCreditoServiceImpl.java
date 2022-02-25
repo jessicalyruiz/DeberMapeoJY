@@ -66,12 +66,12 @@ public class TarjetaCreditoServiceImpl implements ITarjetaCreditoService {
 		this.consumoService.create(consumo);
 		//actualizo cupo
 		tarjeta.setCupo(tarjeta.getCupo().subtract(consumo.getValor()));
-		try {
+		//try {
 			this.tarjetaRepo.actualizar(tarjeta);
-		} catch (NullPointerException e) {
-			// TODO: handle exception
-			LOG.error("error en la transaccion");
-		}
+//		} catch (NullPointerException e) {
+//			// TODO: handle exception
+//			LOG.error("error en la transaccion");
+//		}
 		
 		
 	}
