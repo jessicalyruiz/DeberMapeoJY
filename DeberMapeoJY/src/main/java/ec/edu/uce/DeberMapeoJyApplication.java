@@ -30,7 +30,7 @@ import ec.edu.uce.service.IProductoService;
 import ec.edu.uce.service.ISociosService;
 import ec.edu.uce.service.NinioGuarderiaServiceImpl;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class DeberMapeoJyApplication implements CommandLineRunner{
 	
 	@Autowired

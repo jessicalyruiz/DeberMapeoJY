@@ -39,7 +39,7 @@ import ec.edu.uce.service.jpa.relacionadas.ITarjetaCreditoService;
 
 
 
-@SpringBootApplication
+//@SpringBootApplication
 public class DeberMapeoJyApplication2 implements CommandLineRunner{
 	
 	private static final Logger LOG= (Logger) LoggerFactory.getLogger(DeberMapeoJyApplication2.class);
@@ -138,12 +138,12 @@ public class DeberMapeoJyApplication2 implements CommandLineRunner{
 		this.tarjetaService.create(tarjeta2);
 		*/
 		
-		
-		Consumo consumo=new Consumo();
-		consumo.setFecha(LocalDateTime.now());
-		consumo.setValor(new BigDecimal(10000));
-		//realizo compra
-		this.tarjetaService.realizarCompra(consumo, "789-456");
+//		
+//		Consumo consumo=new Consumo();
+//		consumo.setFecha(LocalDateTime.now());
+//		consumo.setValor(new BigDecimal(10000));
+//		//realizo compra
+//		this.tarjetaService.realizarCompra(consumo, "789-456");
 		
 	}
 
